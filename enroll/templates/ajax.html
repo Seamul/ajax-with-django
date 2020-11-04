@@ -1,0 +1,44 @@
+<script>
+    $("#btnsave").click(function(){
+        // alert("The paragraph was clicked.");
+        let name=$("#nameid").val()
+        let email=$("#emailid").val()
+        let password=$("#passwordid").val()
+        let csr=$("input[name=csrfmiddlewaretoken").val()
+        if(name=="")
+        {
+            console.log("Enter name")
+        }
+        else if(email=="")
+        {
+            console.log("Enter Email")
+        }
+        else if(password=="")
+        {
+            console.log("Enter Password")
+        }
+        else{
+            console.log(name)
+            console.log(email)
+            console.log(password)
+            mydata={csrfmiddlewaretoken:csr,name:name,email:email,password:password}
+            $.ajax({
+                url:"{% url 'save' %}",
+                method: "POST",
+                data: mydata,
+                success: function(data)
+                {
+                    console.log(data.statusp)
+                    $('form')[0].reset();
+                }
+            })
+
+        }
+
+        
+        
+
+});
+
+
+</script>
