@@ -15,8 +15,10 @@
             <div class="col-sm-4">
                 <h4 class="alert alert-info">Add/Update Student</h4>
                 <form action="" method="POST">
+
             
                     {%csrf_token%}
+                    <input type="hidden" name="stuid" id="stuid">
                     {{form.as_p}}
                     <input type="button" name="button" id="btnsave" value="SAVE" class="btn btn-success">
                 </form>
@@ -32,7 +34,7 @@
                             <th>action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="tbody">
                         {% for st in stu %}
                         <tr>
                             <td>{{st.id}}</td>
@@ -40,8 +42,8 @@
                             <td>{{st.email}}</td>
                             <td>{{st.password}}</td>
                             <td>
-                                <input type="button" class="btn btn-warning btn-sm" value="EDIT" data-sid={{st.id}}> 
-                                <input type="button" class="btn btn-danger btn-sm" value="DELETE" data-sid={{st.id}}> 
+                                <input type="button" class="btn btn-warning btn-sm btn-edit" value="EDIT" data-sid={{st.id}}> 
+                                <input type="button" class="btn btn-danger btn-sm btn-del" value="DELETE" data-sid={{st.id}}> 
                             </td>
 
                         </tr>
