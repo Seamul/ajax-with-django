@@ -1,0 +1,20 @@
+2020-12-04 16:25:17,692 Just an information
+2020-12-04 16:25:17,817 Internal Server Error: /upload/
+Traceback (most recent call last):
+  File "/home/seam/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/home/seam/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 179, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/media/seam/New Volume/projects/backand/ajaximplimentation/uploadfile/views.py", line 40, in uploadFile
+    fs.save(f'xxxx{".csv"}', uploadFile)
+  File "/home/seam/.local/lib/python3.8/site-packages/django/core/files/storage.py", line 52, in save
+    return self._save(name, content)
+  File "/home/seam/.local/lib/python3.8/site-packages/django/core/files/storage.py", line 271, in _save
+    for chunk in content.chunks():
+  File "/home/seam/.local/lib/python3.8/site-packages/django/core/files/base.py", line 60, in chunks
+    data = self.read(chunk_size)
+  File "/home/seam/.local/lib/python3.8/site-packages/django/core/files/utils.py", line 16, in <lambda>
+    read = property(lambda self: self.file.read)
+AttributeError: 'NoneType' object has no attribute 'read'
+2020-12-04 16:26:24,081 /media/seam/New Volume/projects/backand/ajaximplimentation/uploadfile/views.py changed, reloading.
+2020-12-04 16:26:24,082 Using selector: EpollSelector
